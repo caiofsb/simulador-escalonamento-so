@@ -1,40 +1,47 @@
 import json
 from processo import Processo
-from Escalonadores import escalonamento_edf, escalonamento_cfs
+from Escalonadores import (
+    escalonamento_edf, 
+    escalonamento_cfs, 
+    escalonamento_fifo, 
+    escalonamento_sjf, 
+    escalonamento_rr
+)
 
-def testar_algoritmo(caminho_arquivo, algoritmo):
-    with open(caminho_arquivo, 'r') as arquivo:
-        dados = json.load(arquivo)
-
+def carregar_processos(caminho_arquivo):
+    with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+    
+    # Extrai os parâmetros globais do JSON
     sobrecarga = dados.get("sobrecarga_contexto", 0)
+    quantum = dados.get("quantum", 2)
     
-    # Converte os dados brutos do JSON para objetos da classe Processo
-    processos_instanciados = []
-    for p_dados in dados["processos"]:
-        novo_processo = Processo(
-            id=p_dados["id"],
-            chegada=p_dados["chegada"],
-            execucao=p_dados["execucao"],
-            deadline=p_dados["deadline"],
-            prioridade=p_dados.get("prioridade", 1) # Padrão 1 caso não exista
+    lista_processos = []
+    # Cria os objetos Processo com base no JSON
+    for p_data in dados.get("processos", []):
+        processo = Processo(
+            id=p_data["id"],
+            chegada=p_data["chegada"],
+            execucao=p_data["execucao"],
+            deadline=p_data["deadline"],
+            prioridade=p_data["prioridade"]
         )
-        processos_instanciados.append(novo_processo)
+        lista_processos.append(processo)
+        
+    return lista_processos, sobrecarga, quantum
 
-    # Injeta os dados no simulador escolhido
-    if algoritmo == "EDF":
-        escalonamento_edf(processos_instanciados, sobrecarga)
-    elif algoritmo == "CFS":
-        escalonamento_cfs(processos_instanciados, sobrecarga)
-    else:
-        print("Algoritmo não reconhecido.")
-
-# ==========================================
-# GATILHO DE EXECUÇÃO CORRIGIDO
-# ==========================================
 if __name__ == "__main__":
-    # Para testar o CFS, basta passar "CFS" como segundo parâmetro
-    #testar_algoritmo("teste_edf_simples.json", "EDF")
-    testar_algoritmo("teste_edf_simples.json", "CFS")
     
-    # Quando quiser testar o EDF, basta comentar a linha acima e descomentar a abaixo:
-    # testar_algoritmo("teste_edf_simples.json", "EDF")
+    arquivo_json = "teste_edf_simples.json"
+    
+    # Carrega os dados
+    lista, sobrecarga, quantum = carregar_processos(arquivo_json)
+    
+    
+    
+    #escalonamento_fifo(lista, sobrecarga)
+    
+    # escalonamento_sjf(lista, sobrecarga)
+    #escalonamento_rr(lista, sobrecarga, quantum)
+    # escalonamento_edf(lista, sobrecarga)
+    # escalonamento_cfs(lista, sobrecarga)
