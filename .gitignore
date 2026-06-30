@@ -141,3 +141,22 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+<<<<<<< HEAD
+=======
+venv/
+
+# Ignorar ambiente virtual do Python
+venv/
+__pycache__/
+
+# Ignorar o arquivo gerado acidentalmente que pesa 18MB
+np
+
+# (Opcional) Você pode escolher se quer subir os pesos da IA (.zip) ou não
+# *.zip
+
+# O arquivo compilado do motor C++ é específico da sua máquina Linux
+# O ideal é ignorá-lo e deixar as instruções de compilação no README.md
+*.so
+venv/
+>>>>>>> 4092d17436c72451bb5903d49b2143261f953b4c
