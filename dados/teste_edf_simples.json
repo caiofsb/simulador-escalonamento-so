@@ -1,0 +1,8 @@
+{
+  "quantum": 2,
+  "sobrecarga_contexto": 1,
+  "processos": [
+    {"id": "Longo", "chegada": 0, "execucao": 5, "deadline": 20, "prioridade": 2},
+    {"id": "Curto", "chegada": 2, "execucao": 2, "deadline": 10, "prioridade": 1}
+  ]
+}

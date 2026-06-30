@@ -1,0 +1,358 @@
+{
+    "quantum": 4,
+    "sobrecarga_contexto": 1,
+    "custo_disco": 3,
+    "seed": 42,
+    "processos": [
+        {
+            "id": "P1",
+            "chegada": 14,
+            "execucao": 3,
+            "deadline": 25,
+            "prioridade": 2
+        },
+        {
+            "id": "P2",
+            "chegada": 17,
+            "execucao": 12,
+            "deadline": 43,
+            "prioridade": 4
+        },
+        {
+            "id": "P3",
+            "chegada": 4,
+            "execucao": 2,
+            "deadline": 14,
+            "prioridade": 5
+        },
+        {
+            "id": "P4",
+            "chegada": 77,
+            "execucao": 2,
+            "deadline": 94,
+            "prioridade": 5
+        },
+        {
+            "id": "P5",
+            "chegada": 53,
+            "execucao": 5,
+            "deadline": 67,
+            "prioridade": 1
+        },
+        {
+            "id": "P6",
+            "chegada": 20,
+            "execucao": 3,
+            "deadline": 32,
+            "prioridade": 2
+        },
+        {
+            "id": "P7",
+            "chegada": 27,
+            "execucao": 20,
+            "deadline": 53,
+            "prioridade": 1
+        },
+        {
+            "id": "P8",
+            "chegada": 48,
+            "execucao": 3,
+            "deadline": 65,
+            "prioridade": 3
+        },
+        {
+            "id": "P9",
+            "chegada": 5,
+            "execucao": 13,
+            "deadline": 29,
+            "prioridade": 1
+        },
+        {
+            "id": "P10",
+            "chegada": 70,
+            "execucao": 5,
+            "deadline": 85,
+            "prioridade": 5
+        },
+        {
+            "id": "P11",
+            "chegada": 24,
+            "execucao": 11,
+            "deadline": 50,
+            "prioridade": 2
+        },
+        {
+            "id": "P12",
+            "chegada": 37,
+            "execucao": 17,
+            "deadline": 60,
+            "prioridade": 4
+        },
+        {
+            "id": "P13",
+            "chegada": 35,
+            "execucao": 3,
+            "deadline": 45,
+            "prioridade": 3
+        },
+        {
+            "id": "P14",
+            "chegada": 45,
+            "execucao": 3,
+            "deadline": 63,
+            "prioridade": 1
+        },
+        {
+            "id": "P15",
+            "chegada": 77,
+            "execucao": 5,
+            "deadline": 90,
+            "prioridade": 2
+        },
+        {
+            "id": "P16",
+            "chegada": 59,
+            "execucao": 5,
+            "deadline": 72,
+            "prioridade": 3
+        },
+        {
+            "id": "P17",
+            "chegada": 7,
+            "execucao": 1,
+            "deadline": 18,
+            "prioridade": 4
+        },
+        {
+            "id": "P18",
+            "chegada": 34,
+            "execucao": 5,
+            "deadline": 49,
+            "prioridade": 2
+        },
+        {
+            "id": "P19",
+            "chegada": 63,
+            "execucao": 4,
+            "deadline": 74,
+            "prioridade": 3
+        },
+        {
+            "id": "P20",
+            "chegada": 17,
+            "execucao": 5,
+            "deadline": 35,
+            "prioridade": 3
+        },
+        {
+            "id": "P21",
+            "chegada": 74,
+            "execucao": 5,
+            "deadline": 90,
+            "prioridade": 3
+        },
+        {
+            "id": "P22",
+            "chegada": 28,
+            "execucao": 14,
+            "deadline": 55,
+            "prioridade": 4
+        },
+        {
+            "id": "P23",
+            "chegada": 11,
+            "execucao": 13,
+            "deadline": 31,
+            "prioridade": 2
+        },
+        {
+            "id": "P24",
+            "chegada": 54,
+            "execucao": 4,
+            "deadline": 69,
+            "prioridade": 5
+        },
+        {
+            "id": "P25",
+            "chegada": 59,
+            "execucao": 5,
+            "deadline": 69,
+            "prioridade": 1
+        },
+        {
+            "id": "P26",
+            "chegada": 68,
+            "execucao": 20,
+            "deadline": 94,
+            "prioridade": 3
+        },
+        {
+            "id": "P27",
+            "chegada": 55,
+            "execucao": 1,
+            "deadline": 65,
+            "prioridade": 5
+        },
+        {
+            "id": "P28",
+            "chegada": 22,
+            "execucao": 1,
+            "deadline": 38,
+            "prioridade": 3
+        },
+        {
+            "id": "P29",
+            "chegada": 64,
+            "execucao": 2,
+            "deadline": 76,
+            "prioridade": 2
+        },
+        {
+            "id": "P30",
+            "chegada": 69,
+            "execucao": 10,
+            "deadline": 93,
+            "prioridade": 3
+        },
+        {
+            "id": "P31",
+            "chegada": 62,
+            "execucao": 3,
+            "deadline": 74,
+            "prioridade": 2
+        },
+        {
+            "id": "P32",
+            "chegada": 7,
+            "execucao": 5,
+            "deadline": 18,
+            "prioridade": 1
+        },
+        {
+            "id": "P33",
+            "chegada": 62,
+            "execucao": 14,
+            "deadline": 83,
+            "prioridade": 4
+        },
+        {
+            "id": "P34",
+            "chegada": 70,
+            "execucao": 5,
+            "deadline": 89,
+            "prioridade": 4
+        },
+        {
+            "id": "P35",
+            "chegada": 27,
+            "execucao": 16,
+            "deadline": 52,
+            "prioridade": 4
+        },
+        {
+            "id": "P36",
+            "chegada": 47,
+            "execucao": 5,
+            "deadline": 64,
+            "prioridade": 1
+        },
+        {
+            "id": "P37",
+            "chegada": 31,
+            "execucao": 3,
+            "deadline": 39,
+            "prioridade": 5
+        },
+        {
+            "id": "P38",
+            "chegada": 70,
+            "execucao": 2,
+            "deadline": 77,
+            "prioridade": 1
+        },
+        {
+            "id": "P39",
+            "chegada": 80,
+            "execucao": 1,
+            "deadline": 86,
+            "prioridade": 3
+        },
+        {
+            "id": "P40",
+            "chegada": 9,
+            "execucao": 3,
+            "deadline": 27,
+            "prioridade": 4
+        },
+        {
+            "id": "P41",
+            "chegada": 27,
+            "execucao": 5,
+            "deadline": 46,
+            "prioridade": 4
+        },
+        {
+            "id": "P42",
+            "chegada": 31,
+            "execucao": 23,
+            "deadline": 62,
+            "prioridade": 1
+        },
+        {
+            "id": "P43",
+            "chegada": 12,
+            "execucao": 3,
+            "deadline": 26,
+            "prioridade": 4
+        },
+        {
+            "id": "P44",
+            "chegada": 59,
+            "execucao": 11,
+            "deadline": 85,
+            "prioridade": 1
+        },
+        {
+            "id": "P45",
+            "chegada": 7,
+            "execucao": 3,
+            "deadline": 16,
+            "prioridade": 2
+        },
+        {
+            "id": "P46",
+            "chegada": 24,
+            "execucao": 4,
+            "deadline": 35,
+            "prioridade": 4
+        },
+        {
+            "id": "P47",
+            "chegada": 23,
+            "execucao": 2,
+            "deadline": 31,
+            "prioridade": 4
+        },
+        {
+            "id": "P48",
+            "chegada": 70,
+            "execucao": 5,
+            "deadline": 80,
+            "prioridade": 1
+        },
+        {
+            "id": "P49",
+            "chegada": 30,
+            "execucao": 4,
+            "deadline": 46,
+            "prioridade": 2
+        },
+        {
+            "id": "P50",
+            "chegada": 51,
+            "execucao": 15,
+            "deadline": 77,
+            "prioridade": 1
+        }
+    ]
+}
