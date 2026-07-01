@@ -195,6 +195,121 @@ def escalonamento_sjf(lista_processos, sobrecarga_contexto):
     gerar_tabela_metricas(lista_processos, "SJF")
 
 
+def escalonamento_rr(lista_processos, sobrecarga_contexto, quantum):
+    print("--- INICIANDO SIMULAÇÃO ROUND-ROBIN ---")
+    print(f"Sobrecarga de Contexto: {sobrecarga_contexto} | Quantum: {quantum}\n")
+
+    tempo_atual = 0
+    fila_prontos = []
+    processos_nao_chegados = sorted(lista_processos, key=lambda p: p.chegada)
+
+    processo_atual = None
+    ultimo_processo_id = None
+    tempo_sobrecarga = 0
+    quantum_restante = 0
+
+    while processos_nao_chegados or fila_prontos or processo_atual or tempo_sobrecarga > 0:
+        while processos_nao_chegados and processos_nao_chegados[0].chegada <= tempo_atual:
+            fila_prontos.append(processos_nao_chegados.pop(0))
+
+        if processo_atual is not None and quantum_restante == 0 and processo_atual.restante > 0:
+            fila_prontos.append(processo_atual)
+            processo_atual = None
+
+        if tempo_sobrecarga > 0:
+            tempo_sobrecarga -= 1
+            tempo_atual += 1
+            continue
+
+        if processo_atual is None and fila_prontos:
+            proximo_processo = fila_prontos.pop(0)
+
+            if ultimo_processo_id is not None and proximo_processo.id != ultimo_processo_id:
+                tempo_sobrecarga = sobrecarga_contexto
+                processo_atual = proximo_processo
+                quantum_restante = quantum
+                if tempo_sobrecarga > 0:
+                    tempo_sobrecarga -= 1
+                    tempo_atual += 1
+                    continue
+
+            processo_atual = proximo_processo
+            quantum_restante = quantum
+            if processo_atual.inicio == -1:
+                processo_atual.inicio = tempo_atual
+
+        if processo_atual is not None:
+            processo_atual.restante -= 1
+            quantum_restante -= 1
+            ultimo_processo_id = processo_atual.id
+
+            if processo_atual.restante == 0:
+                processo_atual.termino = tempo_atual + 1
+                processo_atual = None
+        else:
+            ultimo_processo_id = None
+
+        tempo_atual += 1
+
+    gerar_tabela_metricas(lista_processos, "ROUND-ROBIN")
+
+
+def escalonamento_prioridades(lista_processos, sobrecarga_contexto):
+    print("--- INICIANDO SIMULAÇÃO PRIORIDADES ---")
+    tempo_atual = 0
+    fila_prontos = []
+    processos_nao_chegados = sorted(lista_processos, key=lambda p: p.chegada)
+
+    processo_atual = None
+    ultimo_processo_id = None
+    tempo_sobrecarga = 0
+
+    while processos_nao_chegados or fila_prontos or processo_atual or tempo_sobrecarga > 0:
+        while processos_nao_chegados and processos_nao_chegados[0].chegada <= tempo_atual:
+            fila_prontos.append(processos_nao_chegados.pop(0))
+
+        if tempo_sobrecarga > 0:
+            tempo_sobrecarga -= 1
+            tempo_atual += 1
+            continue
+
+        if fila_prontos:
+            fila_prontos.sort(key=lambda p: (p.prioridade, p.chegada))
+
+            if processo_atual is None or fila_prontos[0].prioridade < processo_atual.prioridade:
+                if processo_atual is not None:
+                    fila_prontos.append(processo_atual)
+                    fila_prontos.sort(key=lambda p: (p.prioridade, p.chegada))
+
+                proximo_processo = fila_prontos.pop(0)
+
+                if ultimo_processo_id is not None and proximo_processo.id != ultimo_processo_id:
+                    tempo_sobrecarga = sobrecarga_contexto
+                    processo_atual = proximo_processo
+                    if tempo_sobrecarga > 0:
+                        tempo_sobrecarga -= 1
+                        tempo_atual += 1
+                        continue
+
+                processo_atual = proximo_processo
+                if processo_atual.inicio == -1:
+                    processo_atual.inicio = tempo_atual
+
+        if processo_atual is not None:
+            processo_atual.restante -= 1
+            ultimo_processo_id = processo_atual.id
+
+            if processo_atual.restante == 0:
+                processo_atual.termino = tempo_atual + 1
+                processo_atual = None
+        else:
+            ultimo_processo_id = None
+
+        tempo_atual += 1
+
+    gerar_tabela_metricas(lista_processos, "PRIORIDADES")
+
+
 # Adicionei esta função auxiliar para evitar repetição de código nas tabelas finais!
 def gerar_tabela_metricas(lista_processos, nome_algoritmo):
     print(f"\n--- RESUMO DE MÉTRICAS {nome_algoritmo} ---")
